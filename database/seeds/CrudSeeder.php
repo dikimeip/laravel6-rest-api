@@ -11,6 +11,6 @@ class CrudSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

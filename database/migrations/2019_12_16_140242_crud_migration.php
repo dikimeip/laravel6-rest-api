@@ -13,7 +13,13 @@ class CrudMigration extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('crud',function(Blueprint $table){
+            $table->bigIncrements('id');
+            $table->string('nama');
+            $table->string('kelas');
+            $table->string('alamat');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class CrudMigration extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('crud');
     }
 }

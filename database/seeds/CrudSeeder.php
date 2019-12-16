@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\crud;
 
 class CrudSeeder extends Seeder
 {
@@ -11,6 +12,10 @@ class CrudSeeder extends Seeder
      */
     public function run()
     {
-        
+        crud::create([
+        	'nama' => 'andi',
+        	'kelas' => '4B',
+        	'alamat' =>'Lamongan'
+        ]);
     }
 }

@@ -94,9 +94,26 @@ class crudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->get('id');
+        $crud = crud::find($id);
+        $crud->nama = $request->get('nama');
+        $crud->kelas = $request->get('kelas');
+        $crud->alamat = $request->get('alamat');
+        $crud->save();
+        if ($crud) {
+            return response()->json([
+                'status' => 1,
+                'data' => 'Success Ubah Data'
+            ],201);
+        } else {
+             return response()->json([
+                'status' => 0,
+                'data' => 'Failed Ubah Data'
+            ],404);
+        }
+
     }
 
     /**

@@ -14,7 +14,18 @@ class crudController extends Controller
      */
     public function index()
     {
-        //
+        $data = crud::all();
+        if (count($data) > 0) {
+            return response()->json([
+                'status' => 1,
+                'data' => $data
+            ],201);
+        } else {
+            return response()->json([
+                'status' => 0,
+                'data' => 'kosong'
+            ],404);
+        }
     }
 
     /**

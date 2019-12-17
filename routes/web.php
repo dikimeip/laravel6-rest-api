@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/v1')->group(function(){
-	Route::get('/user','crudController@index');
-});
+// Route::prefix('/v1')->group(function(){
+// 	Route::get('/user','crudController@index');
+// 	Route::post('/user','crudController@store');
+// });
+
+	

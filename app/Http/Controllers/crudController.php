@@ -46,7 +46,23 @@ class crudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $crud = new crud;
+        $crud->nama = $request->get('nama');
+        $crud->kelas = $request->get('kelas');
+        $crud->alamat = $request->get('alamat');
+        $crud->save();
+
+        if ($crud) {
+            return response()->json([
+                'status' => 1,
+                'data' => 'Success Input Data'
+            ],201);
+        } else {
+             return response()->json([
+                'status' => 0,
+                'data' => 'Failed Input Data'
+            ],404);
+        }
     }
 
     /**

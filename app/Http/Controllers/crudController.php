@@ -126,8 +126,8 @@ class crudController extends Controller
     {   
         $id = $request->get('id');
         $crud = crud::find($id);
-        $crud->delete();
         if ($crud) {
+             $crud->delete();
              return response()->json([
                 'status' => 1,
                 'data' => 'delete success'

@@ -122,8 +122,21 @@ class crudController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request)
+    {   
+        $id = $request->get('id');
+        $crud = crud::find($id);
+        $crud->delete();
+        if ($crud) {
+             return response()->json([
+                'status' => 1,
+                'data' => 'delete success'
+            ],201);
+        } else {
+             return response()->json([
+                'status' => 0,
+                'data' => 'Id not found'
+            ],404);
+        }
     }
 }

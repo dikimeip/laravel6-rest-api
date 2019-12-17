@@ -20,5 +20,6 @@ use Illuminate\Http\Request;
 Route::get('/user','crudController@index');
 Route::post('/user','crudController@store');
 Route::post('/user/edit','crudController@update');
+Route::post('/user/delete','crudController@destroy');
 
 

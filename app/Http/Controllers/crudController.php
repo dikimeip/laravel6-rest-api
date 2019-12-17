@@ -98,11 +98,11 @@ class crudController extends Controller
     {
         $id = $request->get('id');
         $crud = crud::find($id);
-        $crud->nama = $request->get('nama');
-        $crud->kelas = $request->get('kelas');
-        $crud->alamat = $request->get('alamat');
-        $crud->save();
         if ($crud) {
+            $crud->nama = $request->get('nama');
+            $crud->kelas = $request->get('kelas');
+            $crud->alamat = $request->get('alamat');
+            $crud->save();
             return response()->json([
                 'status' => 1,
                 'data' => 'Success Ubah Data'
